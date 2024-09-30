@@ -3,27 +3,34 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
-function AddModal({ show, setShow, car }) {
-
-  const [customerName, setCustomerName] = useState('')
-  const [date, setDate] = useState('')
+function AddModal({ show, setShow, car, rents, setRents }) {
+  const [customerName, setCustomerName] = useState("");
+  const [date, setDate] = useState("");
   //const [show, setShow] = useState(false);
-
-  // const addCar = (new) => {
-
-
-  // }
 
   const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
-  console.log(date)
+
 
   const handleSubmit = (e) => {
+    e.preventDefault();
 
-    e.preventDefault()
+    setRents([
+      ...rents,
+      {
+        id: crypto.randomUUID(),
+        customerName: customerName,
+        date: date,
+        car: car,
+        isReturned: false,
+      },
+    ]);
 
+    setCustomerName("");
+    setDate("");
+    
 
-  }
+  };
 
   return (
     <>
@@ -40,17 +47,17 @@ function AddModal({ show, setShow, car }) {
                 placeholder="Enter your name"
                 id="name"
                 value={customerName}
-                onChange={(e)=>setCustomerName(e.target.value)}
+                onChange={(e) => setCustomerName(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Reservation Date:</Form.Label>
-              <Form.Control 
-              type="datetime-local" 
-              id="date"
-              value={date}
-              onChange={(e)=>setDate(e.target.value)}
+              <Form.Control
+                type="datetime-local"
+                id="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
               />
             </Form.Group>
 

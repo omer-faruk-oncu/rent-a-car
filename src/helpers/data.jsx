@@ -1,27 +1,26 @@
-export const appointmentData = [
+export const rentedCarData = [
   {
     id: 1,
-    patient: "Timmy Donaldson",
-    day: new Date(),
-    consulted: true,
-    doctor: "Prof. Akari Yoshino",
+    customerName: "John Adams",
+    date: new Date(),
+    car: 'BMW',
+    isReturned: true,
   },
   {
     id: 2,
-    patient: "Bobbie Martel",
-    day: new Date(),
-    consulted: false,
-    doctor: "Prof. Dr. Theodor Jackson",
+    customerName: "Mary Jane",
+    date: new Date(),
+    car: 'Mercedes',
+    isReturned: false,
   },
   {
     id: 3,
-    patient: "Elisa Daniel",
-    day: new Date(),
-    consulted: true,
-    doctor: "Dr. Jasmine Carpanter",
+    customerName: "Micheal Deeps",
+    date: new Date(),
+    car: 'Golf',
+    isReturned: false,
   },
 ];
-
 
 export const carData = [
   {
@@ -72,4 +71,4 @@ export const carData = [
     type: "Diesel",
     img: "./img/range-rover.jpg",
   },
-]
+];

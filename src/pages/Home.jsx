@@ -1,13 +1,18 @@
-import Cars from "../components/Cars"
-import ReservationList from "../components/ReservationList"
+import { useState } from "react";
+import Cars from "../components/Cars";
+import RentedCarList from "../components/RentedCarList";
+import { rentedCarData } from "../helpers/data";
+
 const Home = () => {
+  const [rents, setRents] = useState(rentedCarData);
+
   return (
     <main className="text-center mt-2">
-      <h1 className="display-5 text-danger">RENT A CAR</h1>
-      <Cars />
-      <ReservationList />
+      <h1 className="display-5 mt-5">RENT A CAR</h1>
+      <Cars rents={rents} setRents={setRents} />
+      <RentedCarList rents={rents} setRents={setRents} />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
