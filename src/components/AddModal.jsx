@@ -11,7 +11,6 @@ function AddModal({ show, setShow, car, rents, setRents }) {
   const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,10 +25,22 @@ function AddModal({ show, setShow, car, rents, setRents }) {
       },
     ]);
 
+    localStorage.setItem(
+      "rentedCars",
+      JSON.stringify([
+        ...rents,
+        {
+          id: crypto.randomUUID(),
+          customerName: customerName,
+          date: date,
+          car: car,
+          isReturned: false,
+        },
+      ])
+    );
+
     setCustomerName("");
     setDate("");
-    
-
   };
 
   return (

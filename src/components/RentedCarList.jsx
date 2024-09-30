@@ -10,11 +10,15 @@ const RentedCarList = ({ rents, setRents }) => {
     );
 
     setRents(updatedRents);
+
+    localStorage.setItem("rentedCars", JSON.stringify(updatedRents));
   };
 
   const handleDelete = (id) => {
     const updatedRents = rents.filter((rent) => rent.id !== id);
     setRents(updatedRents);
+
+    localStorage.setItem("rentedCars", JSON.stringify(updatedRents));
   }
 
   return (
