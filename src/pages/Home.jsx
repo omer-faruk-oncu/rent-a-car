@@ -4,7 +4,7 @@ import RentedCarList from "../components/RentedCarList";
 import { rentedCarData } from "../helpers/data";
 
 const Home = () => {
-  const [rents, setRents] = useState(JSON.parse(localStorage.getItem('rentedCars')) || []);
+  const [rents, setRents] = useState(JSON.parse(localStorage.getItem('rentedCars')) || rentedCarData);
 
   return (
     <main className="text-center mt-2">
